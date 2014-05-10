@@ -222,9 +222,6 @@ main(int argc, char *argv[])
 	signal(SIGHUP, cleanup);
 	signal(SIGINT, cleanup);
 	signal(SIGTERM, cleanup);
-
-	/*Makes sure that if the calling app dies we quit spoofing*/
-	ensure_death();
 	
 	for (;;) {
 		arp_send(l, ARPOP_REPLY, NULL, spoof_ip,
